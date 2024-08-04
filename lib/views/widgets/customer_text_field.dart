@@ -5,13 +5,20 @@ class CustomerTextField extends StatelessWidget {
     super.key,
     required this.title,
     required this.maxLines,
+    this.onSaved,
   });
   final String title;
   final int maxLines;
+  final void Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return 'field is required';
+        }
+      },
       maxLines: maxLines,
       decoration: InputDecoration(
         hintText: title,
@@ -19,6 +26,7 @@ class CustomerTextField extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
       ),
+      onSaved: onSaved,
     );
   }
 }

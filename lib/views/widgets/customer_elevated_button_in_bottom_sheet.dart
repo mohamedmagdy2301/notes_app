@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 class CustomerElevatedButtonInBottomSheet extends StatelessWidget {
   const CustomerElevatedButtonInBottomSheet({
     super.key,
+    required this.onTap,
   });
-
+  final Function() onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         width: double.infinity,
         height: 60,
