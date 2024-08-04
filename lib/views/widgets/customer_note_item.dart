@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/views/edit_note_view.dart';
 
 class CustomerNoteItem extends StatelessWidget {
   const CustomerNoteItem({
@@ -13,54 +14,66 @@ class CustomerNoteItem extends StatelessWidget {
   final String titleNoteItem, subtitleNoteItem, timeNoteItem;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(top: 12, left: 8),
-      margin: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        color: colorNoteItem,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          ListTile(
-            title: Text(
-              titleNoteItem,
-              style: const TextStyle(
-                fontSize: 24,
-                color: Colors.black,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return const EditNoteView();
+            },
+          ),
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.only(top: 12, left: 8),
+        margin: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          color: colorNoteItem,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            ListTile(
+              title: Text(
+                titleNoteItem,
+                style: const TextStyle(
+                  fontSize: 24,
+                  color: Colors.black,
+                ),
               ),
-            ),
-            subtitle: Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Text(
-                subtitleNoteItem,
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.black.withOpacity(0.5),
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: Text(
+                  subtitleNoteItem,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.black.withOpacity(0.5),
+                  ),
+                ),
+              ),
+              trailing: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.delete,
+                  size: 28,
+                  color: Colors.black,
                 ),
               ),
             ),
-            trailing: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.delete,
-                size: 28,
-                color: Colors.black,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+              child: Text(
+                timeNoteItem,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.black.withOpacity(0.6),
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
-            child: Text(
-              timeNoteItem,
-              style: TextStyle(
-                fontSize: 12,
-                color: Colors.black.withOpacity(0.6),
-              ),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
