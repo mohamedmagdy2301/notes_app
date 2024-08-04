@@ -14,7 +14,7 @@ class CustomerAppBar extends StatelessWidget implements PreferredSizeWidget {
             padding: const EdgeInsets.all(6),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              color: const Color.fromARGB(60, 82, 82, 82),
+              color: const Color.fromARGB(159, 62, 62, 62),
             ),
             child: const Icon(
               Icons.search,
