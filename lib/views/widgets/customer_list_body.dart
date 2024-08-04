@@ -10,7 +10,7 @@ class CustomerListBody extends StatelessWidget {
       itemCount: 10,
       itemBuilder: (context, index) {
         return const CustomerNoteItem(
-          colorNoteItem: Colors.white,
+          colorNoteItem: Color.fromARGB(255, 0, 238, 255),
           titleNoteItem: 'Note Title',
           subtitleNoteItem: 'Note Desstion here ,and more ...',
           timeNoteItem: 'May 12, 2022',

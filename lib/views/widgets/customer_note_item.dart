@@ -27,7 +27,7 @@ class CustomerNoteItem extends StatelessWidget {
             title: Text(
               titleNoteItem,
               style: const TextStyle(
-                fontSize: 26,
+                fontSize: 24,
                 color: Colors.black,
               ),
             ),
@@ -36,7 +36,7 @@ class CustomerNoteItem extends StatelessWidget {
               child: Text(
                 subtitleNoteItem,
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 14,
                   color: Colors.black.withOpacity(0.5),
                 ),
               ),
