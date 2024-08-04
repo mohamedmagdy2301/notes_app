@@ -13,7 +13,7 @@ class CustomerListBody extends StatelessWidget {
           colorNoteItem: Colors.white,
           titleNoteItem: 'Note Title',
           subtitleNoteItem: 'Note Desstion here ,and more ...',
-          timeNoteItem: '12:00',
+          timeNoteItem: 'May 12, 2022',
         );
       },
     );
