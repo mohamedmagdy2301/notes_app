@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/views/widgets/customer_appbar.dart';
+import 'package:notes_app/views/widgets/customer_list_body.dart';
 
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
@@ -8,6 +9,7 @@ class NotesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       appBar: CustomerAppBar(),
+      body: CustomerListBody(),
     );
   }
 }
