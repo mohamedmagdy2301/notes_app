@@ -11,6 +11,7 @@ class FloatingButtonAddNoteItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       backgroundColor: kPrimaryColor,
+      shape: const CircleBorder(),
       onPressed: () {
         showModalBottomSheet(
             isScrollControlled: true,
@@ -19,7 +20,11 @@ class FloatingButtonAddNoteItem extends StatelessWidget {
               return const AddNoteBottomSheet();
             });
       },
-      child: const Icon(Icons.add, color: Colors.black),
+      child: const Icon(
+        Icons.add,
+        color: Colors.black,
+        size: 30,
+      ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/helper/constant.dart';
 
 class CustomerTextField extends StatelessWidget {
   const CustomerTextField({
@@ -18,15 +19,27 @@ class CustomerTextField extends StatelessWidget {
         if (value?.isEmpty ?? true) {
           return 'field is required';
         }
+        return null;
       },
+      onSaved: onSaved,
       maxLines: maxLines,
+      cursorColor: kPrimaryColor,
       decoration: InputDecoration(
         hintText: title,
         border: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: Colors.white),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: kPrimaryColor),
         ),
       ),
-      onSaved: onSaved,
     );
   }
 }
