@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 
 class CustomerAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomerAppBar({super.key});
+  const CustomerAppBar(
+      {super.key, required this.titleAppBar, required this.iconAppBar});
+
+  final String titleAppBar;
+  final IconData iconAppBar;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       elevation: .5,
-      title: const Padding(
-        padding: EdgeInsets.only(left: 16),
+      title: Padding(
+        padding: const EdgeInsets.only(left: 16),
         child: Text(
-          'Notes',
-          style: TextStyle(
+          titleAppBar,
+          style: const TextStyle(
             fontSize: 30,
             fontWeight: FontWeight.w700,
           ),
@@ -27,8 +31,8 @@ class CustomerAppBar extends StatelessWidget implements PreferredSizeWidget {
               borderRadius: BorderRadius.circular(12),
               color: const Color.fromARGB(129, 58, 58, 58),
             ),
-            child: const Icon(
-              Icons.search,
+            child: Icon(
+              iconAppBar,
             ),
           ),
         ),
