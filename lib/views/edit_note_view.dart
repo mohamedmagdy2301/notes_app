@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/views/widgets/customer_appbar.dart';
+import 'package:notes_app/views/widgets/customer_body_edit_view.dart';
 
 class EditNoteView extends StatelessWidget {
   const EditNoteView({super.key});
@@ -8,9 +9,7 @@ class EditNoteView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       appBar: CustomerAppBar(titleAppBar: 'Edit Note', iconAppBar: Icons.done),
-      body: Center(
-        child: Text('Edit Note View'),
-      ),
+      body: CutomerBodyEditView(),
     );
   }
 }

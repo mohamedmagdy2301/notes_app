@@ -16,7 +16,7 @@ class CustomerAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: Text(
           titleAppBar,
           style: const TextStyle(
-            fontSize: 30,
+            fontSize: 25,
             fontWeight: FontWeight.w700,
           ),
         ),
@@ -25,10 +25,10 @@ class CustomerAppBar extends StatelessWidget implements PreferredSizeWidget {
         IconButton(
           onPressed: () {},
           icon: Container(
-            padding: const EdgeInsets.all(7),
+            padding: const EdgeInsets.all(5),
             margin: const EdgeInsets.only(right: 16),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(8),
               color: const Color.fromARGB(129, 58, 58, 58),
             ),
             child: Icon(
