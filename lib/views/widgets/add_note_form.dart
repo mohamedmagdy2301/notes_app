@@ -52,12 +52,6 @@ class _AddNoteFormState extends State<AddNoteForm> {
                   coloe: 0,
                 );
                 BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
-                Navigator.pop(context);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Note added successfully ✅'),
-                  ),
-                );
               } else {
                 autovalidateMode = AutovalidateMode.always;
                 setState(() {});

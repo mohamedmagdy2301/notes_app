@@ -27,6 +27,14 @@ class AddNoteBottomSheet extends StatelessWidget {
               ),
             );
           }
+          if (state is AddNoteSuccess) {
+            Navigator.pop(context);
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Note added successfully ✅'),
+              ),
+            );
+          }
         },
         builder: (context, state) {
           return ModalProgressHUD(
