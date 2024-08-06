@@ -5,8 +5,10 @@ class CustomerElevatedButtonInBottomSheet extends StatelessWidget {
   const CustomerElevatedButtonInBottomSheet({
     super.key,
     required this.onTap,
+    this.isLoading = false,
   });
   final Function() onTap;
+  final bool isLoading;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -19,14 +21,22 @@ class CustomerElevatedButtonInBottomSheet extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           color: kPrimaryColor,
         ),
-        child: const Text(
-          'Add Note',
-          style: TextStyle(
-            fontSize: 17,
-            color: Colors.black,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
+        child: isLoading
+            ? const SizedBox(
+                height: 24,
+                width: 24,
+                child: CircularProgressIndicator(
+                  color: Colors.black,
+                ),
+              )
+            : const Text(
+                'Add Note',
+                style: TextStyle(
+                  fontSize: 17,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
       ),
     );
   }
