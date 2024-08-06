@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/helper/constant.dart';
 import 'package:notes_app/views/widgets/add_note_bottom_sheet.dart';
 
@@ -17,7 +19,10 @@ class FloatingButtonAddNoteItem extends StatelessWidget {
             isScrollControlled: true,
             context: context,
             builder: (context) {
-              return const AddNoteBottomSheet();
+              return BlocProvider<AddNoteCubit>(
+                create: (context) => AddNoteCubit(),
+                child: const AddNoteBottomSheet(),
+              );
             });
       },
       child: const Icon(

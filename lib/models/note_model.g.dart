@@ -8,7 +8,7 @@ part of 'note_model.dart';
 
 class NoteModelAdapter extends TypeAdapter<NoteModel> {
   @override
-  final int typeId = 0;
+  final int typeId = 32;
 
   @override
   NoteModel read(BinaryReader reader) {
@@ -26,7 +26,16 @@ class NoteModelAdapter extends TypeAdapter<NoteModel> {
 
   @override
   void write(BinaryWriter writer, NoteModel obj) {
-    writer.writeByte(0);
+    writer
+      ..writeByte(4)
+      ..writeByte(0)
+      ..write(obj.title)
+      ..writeByte(1)
+      ..write(obj.subTitle)
+      ..writeByte(2)
+      ..write(obj.date)
+      ..writeByte(3)
+      ..write(obj.coloe);
   }
 
   @override

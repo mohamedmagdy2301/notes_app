@@ -7,9 +7,13 @@ class EditNoteView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: CustomerAppBar(titleAppBar: 'Edit Note', iconAppBar: Icons.done),
-      body: CutomerBodyEditView(),
+    return Scaffold(
+      appBar: CustomerAppBar(
+        titleAppBar: 'Edit Note',
+        iconAppBar: Icons.done,
+        onTap: () {},
+      ),
+      body: const CutomerBodyEditView(),
     );
   }
 }

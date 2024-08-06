@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 
 class CustomerAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomerAppBar(
-      {super.key, required this.titleAppBar, required this.iconAppBar});
+      {super.key,
+      required this.titleAppBar,
+      required this.iconAppBar,
+      required this.onTap});
 
   final String titleAppBar;
   final IconData iconAppBar;
+
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -22,17 +27,19 @@ class CustomerAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       actions: [
-        IconButton(
-          onPressed: () {},
-          icon: Container(
-            padding: const EdgeInsets.all(5),
-            margin: const EdgeInsets.only(right: 16),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: const Color.fromARGB(129, 58, 58, 58),
-            ),
-            child: Icon(
-              iconAppBar,
+        Padding(
+          padding: const EdgeInsets.only(right: 16),
+          child: GestureDetector(
+            onTap: onTap,
+            child: Container(
+              padding: const EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: const Color.fromARGB(129, 58, 58, 58),
+              ),
+              child: Icon(
+                iconAppBar,
+              ),
             ),
           ),
         ),
