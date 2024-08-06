@@ -27,7 +27,7 @@ class CustomerNoteItem extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: Colors.amber,
+          color: Color(noteModel.color),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
