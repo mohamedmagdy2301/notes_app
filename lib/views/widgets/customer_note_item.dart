@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
 class CustomerNoteItem extends StatelessWidget {
   const CustomerNoteItem({
     super.key,
-    required this.colorNoteItem,
-    required this.titleNoteItem,
-    required this.subtitleNoteItem,
-    required this.timeNoteItem,
+    required this.noteModel,
   });
 
-  final Color colorNoteItem;
-  final String titleNoteItem, subtitleNoteItem, timeNoteItem;
+  final NoteModel noteModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -30,14 +27,14 @@ class CustomerNoteItem extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: colorNoteItem,
+          color: Colors.amber,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
               title: Text(
-                titleNoteItem,
+                noteModel.title,
                 style: const TextStyle(
                   fontSize: 24,
                   color: Colors.black,
@@ -46,7 +43,7 @@ class CustomerNoteItem extends StatelessWidget {
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Text(
-                  subtitleNoteItem,
+                  noteModel.subTitle,
                   style: TextStyle(
                     fontSize: 14,
                     color: Colors.black.withOpacity(0.5),
@@ -65,7 +62,7 @@ class CustomerNoteItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
               child: Text(
-                timeNoteItem,
+                noteModel.date,
                 style: TextStyle(
                   fontSize: 12,
                   color: Colors.black.withOpacity(0.6),
