@@ -20,6 +20,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   String? title, subTitle;
+  Color? color = const Color.fromARGB(255, 255, 187, 68);
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -42,7 +43,8 @@ class _AddNoteFormState extends State<AddNoteForm> {
               onSaved: (value) {
                 subTitle = value;
               }),
-          const SizedBox(height: 40),
+          const SizedBox(height: 15),
+          const SizedBox(height: 15),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
               return CustomerElevatedButtonInBottomSheet(
@@ -68,7 +70,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
         title: title!,
         subTitle: subTitle!,
         date: formattedDate,
-        color: const Color.fromARGB(255, 255, 187, 68).value,
+        color: color!.value,
       );
       BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
     } else {

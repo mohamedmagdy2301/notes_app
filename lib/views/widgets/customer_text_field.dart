@@ -7,14 +7,16 @@ class CustomerTextField extends StatelessWidget {
     required this.title,
     required this.maxLines,
     this.onSaved,
+    this.onChanged,
   });
   final String title;
   final int maxLines;
-  final void Function(String?)? onSaved;
+  final void Function(String?)? onSaved, onChanged;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
       validator: (value) {
         if (value?.isEmpty ?? true) {
           return 'field is required';
