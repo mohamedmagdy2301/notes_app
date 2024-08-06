@@ -5,7 +5,9 @@ import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/widgets/customer_note_item.dart';
 
 class CustomerListBody extends StatefulWidget {
-  const CustomerListBody({super.key});
+  const CustomerListBody({super.key, required this.notes});
+
+  final List<NoteModel> notes;
 
   @override
   State<CustomerListBody> createState() => _CustomerListBodyState();
@@ -13,23 +15,17 @@ class CustomerListBody extends StatefulWidget {
 
 class _CustomerListBodyState extends State<CustomerListBody> {
   @override
-  initState() {
-    super.initState();
+  void initState() {
     BlocProvider.of<ViewNoteCubit>(context).getNote();
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ViewNoteCubit, ViewNoteState>(
-      builder: (context, state) {
-        List<NoteModel> notes =
-            BlocProvider.of<ViewNoteCubit>(context).notes ?? [];
-        return ListView.builder(
-          itemCount: notes.length,
-          itemBuilder: (context, index) {
-            return CustomerNoteItem(noteModel: notes[index]);
-          },
-        );
+    return ListView.builder(
+      itemCount: widget.notes.length,
+      itemBuilder: (context, index) {
+        return CustomerNoteItem(noteModel: widget.notes[index]);
       },
     );
   }

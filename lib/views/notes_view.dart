@@ -9,19 +9,28 @@ class NotesView extends StatelessWidget {
   const NotesView({super.key});
 
   @override
-  @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ViewNoteCubit(),
-      child: Scaffold(
-        floatingActionButton: const FloatingButtonAddNoteItem(),
-        appBar: CustomerAppBar(
-          titleAppBar: 'Notes',
-          iconAppBar: Icons.search,
-          onTap: () {},
-        ),
-        body: const CustomerListBody(),
-      ),
+    var notesBlocProvider = BlocProvider.of<ViewNoteCubit>(context);
+    return BlocBuilder<ViewNoteCubit, ViewNoteState>(
+      builder: (context, state) {
+        return Scaffold(
+          floatingActionButton: const FloatingButtonAddNoteItem(),
+          appBar: CustomerAppBar(
+            titleAppBar: 'Notes',
+            iconAppBar: Icons.delete,
+            onTap: () {
+              notesBlocProvider.notes = [];
+              notesBlocProvider.getNote();
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('All notes deleted successfully ✅'),
+                ),
+              );
+            },
+          ),
+          body: CustomerListBody(notes: notesBlocProvider.notes ?? []),
+        );
+      },
     );
   }
 }

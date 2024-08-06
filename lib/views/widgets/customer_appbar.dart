@@ -10,7 +10,7 @@ class CustomerAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String titleAppBar;
   final IconData iconAppBar;
 
-  final VoidCallback onTap;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
