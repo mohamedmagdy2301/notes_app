@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/helper/constant.dart';
-import 'package:notes_app/models/note_model.dart';
-import 'package:notes_app/views/widgets/customer_color_circle.dart';
+import 'package:notes/helper/constant.dart';
+import 'package:notes/models/note_model.dart';
+import 'package:notes/views/widgets/customer_color_circle.dart';
 
 class CustomerEditColorList extends StatefulWidget {
   const CustomerEditColorList({

@@ -3,8 +3,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:notes_app/helper/constant.dart';
-import 'package:notes_app/models/note_model.dart';
+import 'package:notes/helper/constant.dart';
+import 'package:notes/models/note_model.dart';
 
 part 'add_note_state.dart';
 

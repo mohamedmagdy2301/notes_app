@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/helper/constant.dart';
+import 'package:notes/helper/constant.dart';
 
 class CustomerTextField extends StatelessWidget {
   const CustomerTextField({

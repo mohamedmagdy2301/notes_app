@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
-import 'package:notes_app/cubits/view_note_cubit/view_note_cubit.dart';
-import 'package:notes_app/models/note_model.dart';
-import 'package:notes_app/views/widgets/customer_color_circle.dart';
-import 'package:notes_app/views/widgets/customer_elevated_button_in_bottom_sheet.dart';
-import 'package:notes_app/views/widgets/customer_text_field.dart';
+import 'package:notes/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:notes/cubits/view_note_cubit/view_note_cubit.dart';
+import 'package:notes/models/note_model.dart';
+import 'package:notes/views/widgets/customer_color_circle.dart';
+import 'package:notes/views/widgets/customer_elevated_button_in_bottom_sheet.dart';
+import 'package:notes/views/widgets/customer_text_field.dart';
 
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({

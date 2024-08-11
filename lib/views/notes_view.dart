@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
-import 'package:notes_app/cubits/view_note_cubit/view_note_cubit.dart';
-import 'package:notes_app/helper/constant.dart';
-import 'package:notes_app/views/widgets/add_note_bottom_sheet.dart';
-import 'package:notes_app/views/widgets/customer_appbar.dart';
-import 'package:notes_app/views/widgets/customer_list_body.dart';
+import 'package:notes/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:notes/cubits/view_note_cubit/view_note_cubit.dart';
+import 'package:notes/helper/constant.dart';
+import 'package:notes/views/widgets/add_note_bottom_sheet.dart';
+import 'package:notes/views/widgets/customer_appbar.dart';
+import 'package:notes/views/widgets/customer_list_body.dart';
 
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
