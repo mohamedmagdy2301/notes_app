@@ -28,8 +28,9 @@ class _EditNoteViewState extends State<EditNoteView> {
         iconAppBar: Icons.done,
         onTap: () {
           if (title == null && subTitle == null) {
+            widget.noteModel.save();
+            BlocProvider.of<ViewNoteCubit>(context).getNote();
             Navigator.pop(context);
-
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 backgroundColor: Colors.redAccent,
@@ -47,6 +48,8 @@ class _EditNoteViewState extends State<EditNoteView> {
               ),
             );
           } else {
+            Navigator.pop(context);
+
             showAdaptiveDialog(
               context: context,
               builder: (context) {

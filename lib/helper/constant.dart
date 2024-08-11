@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 const kNoteBox = "notes_box";
 const kPrimaryColor = Color(0xff62fCD7);
 List<Color> kColorsList = [
+  const Color.fromARGB(255, 255, 137, 86),
   const Color.fromARGB(255, 255, 187, 68),
-  const Color.fromARGB(255, 243, 255, 71),
+  const Color.fromARGB(255, 255, 255, 71),
   const Color.fromARGB(255, 163, 255, 93),
   const Color.fromARGB(255, 82, 255, 148),
-  const Color.fromARGB(255, 112, 255, 241),
+  const Color.fromARGB(255, 112, 212, 255),
   const Color.fromARGB(255, 219, 192, 248),
   const Color.fromARGB(255, 231, 111, 255),
   const Color.fromARGB(255, 255, 101, 101),
