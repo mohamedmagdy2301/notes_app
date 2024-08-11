@@ -27,16 +27,62 @@ class _EditNoteViewState extends State<EditNoteView> {
         titleAppBar: 'Edit Note',
         iconAppBar: Icons.done,
         onTap: () {
-          widget.noteModel.title = title ?? widget.noteModel.title;
-          widget.noteModel.subTitle = subTitle ?? widget.noteModel.subTitle;
-          widget.noteModel.save();
-          BlocProvider.of<ViewNoteCubit>(context).getNote();
-          Navigator.pop(context);
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Note updated successfully ✅'),
-            ),
-          );
+          if (title == null && subTitle == null) {
+            Navigator.pop(context);
+
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                backgroundColor: Colors.redAccent,
+                duration: Duration(milliseconds: 2000),
+                content: Text(
+                  'No changes!',
+                  style: TextStyle(color: Colors.white, fontSize: 16),
+                  textAlign: TextAlign.center,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(18)),
+                ),
+                behavior: SnackBarBehavior.floating,
+                margin: EdgeInsets.symmetric(horizontal: 120, vertical: 50),
+              ),
+            );
+          } else {
+            showAdaptiveDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
+                  titleTextStyle: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  title: const Text('Edit Note'),
+                  content:
+                      const Text('Are you sure you want to edit this note?'),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        widget.noteModel.title =
+                            title ?? widget.noteModel.title;
+                        widget.noteModel.subTitle =
+                            subTitle ?? widget.noteModel.subTitle;
+                        widget.noteModel.save();
+                        BlocProvider.of<ViewNoteCubit>(context).getNote();
+                        Navigator.pop(context);
+                      },
+                      child: const Text('Yes'),
+                    ),
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text('No'),
+                    ),
+                  ],
+                );
+              },
+            );
+          }
         },
       ),
       body: Padding(
