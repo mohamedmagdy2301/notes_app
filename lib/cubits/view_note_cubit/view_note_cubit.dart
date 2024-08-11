@@ -12,8 +12,14 @@ class ViewNoteCubit extends Cubit<ViewNoteState> {
   ViewNoteCubit() : super(ViewNoteInitial());
   List<NoteModel>? notes;
   getNote() {
-    var notesBox = Hive.box<NoteModel>(kNoteBox);
+    Box<NoteModel> notesBox = Hive.box<NoteModel>(kNoteBox);
     notes = notesBox.values.toList();
+    emit(ViewNoteSuccess());
+  }
+
+  deleteAllNotes() {
+    Hive.box<NoteModel>(kNoteBox).deleteAll(notes!.map((e) => e.key).toList());
+    getNote();
     emit(ViewNoteSuccess());
   }
 }
