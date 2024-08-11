@@ -17,7 +17,7 @@ class CustomerNoteItem extends StatelessWidget {
     var notesBlocProvider = BlocProvider.of<ViewNoteCubit>(context);
 
     return Container(
-      padding: const EdgeInsets.only(top: 15, left: 20, right: 8),
+      padding: const EdgeInsets.only(top: 20, left: 20, right: 8),
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
@@ -35,13 +35,13 @@ class CustomerNoteItem extends StatelessWidget {
                   Text(
                     noteModel.title,
                     style: const TextStyle(
-                      fontSize: 26,
+                      fontSize: 25,
                       color: Colors.black,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 15),
+                    padding: const EdgeInsets.only(top: 10),
                     child: Text(
                       noteModel.subTitle,
                       style: TextStyle(
