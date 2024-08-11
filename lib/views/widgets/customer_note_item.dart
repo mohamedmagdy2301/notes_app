@@ -16,77 +16,95 @@ class CustomerNoteItem extends StatelessWidget {
   Widget build(BuildContext context) {
     var notesBlocProvider = BlocProvider.of<ViewNoteCubit>(context);
 
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return EditNoteView(noteModel: noteModel);
-            },
-          ),
-        );
-      },
-      child: Container(
-        padding: const EdgeInsets.only(top: 12, left: 8),
-        margin: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          color: Color(noteModel.color),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            ListTile(
-              title: Text(
-                noteModel.title,
-                style: const TextStyle(
-                  fontSize: 24,
-                  color: Colors.black,
-                ),
-              ),
-              subtitle: Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: Text(
-                  noteModel.subTitle,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.black.withOpacity(0.5),
+    return Container(
+      padding: const EdgeInsets.only(top: 15, left: 20, right: 8),
+      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Color(noteModel.color),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                children: [
+                  Text(
+                    noteModel.title,
+                    style: const TextStyle(
+                      fontSize: 26,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15),
+                    child: Text(
+                      noteModel.subTitle,
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black.withOpacity(0.5),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              trailing: IconButton(
-                onPressed: () {
-                  messageForDelete(
-                    context,
-                    notesBlocProvider,
-                    "note",
-                    () {
-                      noteModel.delete();
-                      Navigator.pop(context);
-                      notesBlocProvider.getNote();
-                    },
-                  );
-                },
+              PopupMenuButton(
+                constraints: const BoxConstraints(
+                  maxHeight: 100,
+                  maxWidth: 100,
+                ),
                 icon: const Icon(
-                  Icons.edit,
-                  size: 28,
+                  Icons.more_vert,
                   color: Colors.black,
                 ),
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    child: const Text("Edit"),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return EditNoteView(noteModel: noteModel);
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                  PopupMenuItem(
+                    child: const Text("Delete"),
+                    onTap: () {
+                      messageForDelete(
+                        context,
+                        notesBlocProvider,
+                        "note",
+                        () {
+                          noteModel.delete();
+                          Navigator.pop(context);
+                          notesBlocProvider.getNote();
+                        },
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+            child: Text(
+              noteModel.date,
+              style: TextStyle(
+                fontSize: 13,
+                color: Colors.black.withOpacity(0.6),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
-              child: Text(
-                noteModel.date,
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.black.withOpacity(0.6),
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
