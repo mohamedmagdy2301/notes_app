@@ -8,9 +8,10 @@ class CustomerTextField extends StatelessWidget {
     required this.maxLines,
     this.onSaved,
     this.onChanged,
+    required this.maxLength,
   });
   final String title;
-  final int maxLines;
+  final int maxLines, maxLength;
   final void Function(String?)? onSaved, onChanged;
 
   @override
@@ -25,6 +26,7 @@ class CustomerTextField extends StatelessWidget {
       },
       onSaved: onSaved,
       maxLines: maxLines,
+      maxLength: maxLength,
       cursorColor: kPrimaryColor,
       decoration: InputDecoration(
         hintText: title,

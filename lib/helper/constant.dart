@@ -11,7 +11,7 @@ List<Color> kColorsList = [
   const Color.fromARGB(255, 112, 212, 255),
   const Color.fromARGB(255, 219, 192, 248),
   const Color.fromARGB(255, 231, 111, 255),
-  const Color.fromARGB(255, 255, 101, 101),
+  const Color.fromARGB(255, 250, 120, 120),
 ];
 
 messageIfUndo(context, cubitUsed, scaffoldMessenger, message) {
@@ -48,7 +48,7 @@ messageForDelete(context, cubitUsed, typeDelete, onPressed) {
   if (cubitUsed.notes!.isEmpty) {
     return ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Color.fromARGB(218, 255, 1, 1),
         duration: Duration(milliseconds: 2000),
         content: Text(
           'No notes to delete!',
@@ -59,7 +59,7 @@ messageForDelete(context, cubitUsed, typeDelete, onPressed) {
           borderRadius: BorderRadius.all(Radius.circular(18)),
         ),
         behavior: SnackBarBehavior.floating,
-        margin: EdgeInsets.symmetric(horizontal: 120),
+        margin: EdgeInsets.symmetric(horizontal: 80),
       ),
     );
   } else {

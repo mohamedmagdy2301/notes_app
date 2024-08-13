@@ -33,10 +33,10 @@ class _EditNoteViewState extends State<EditNoteView> {
             Navigator.pop(context);
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
-                backgroundColor: Colors.redAccent,
+                backgroundColor: Color.fromARGB(218, 255, 1, 1),
                 duration: Duration(milliseconds: 2000),
                 content: Text(
-                  'No changes!',
+                  'No changes (title and content)',
                   style: TextStyle(color: Colors.white, fontSize: 16),
                   textAlign: TextAlign.center,
                 ),
@@ -44,7 +44,7 @@ class _EditNoteViewState extends State<EditNoteView> {
                   borderRadius: BorderRadius.all(Radius.circular(18)),
                 ),
                 behavior: SnackBarBehavior.floating,
-                margin: EdgeInsets.symmetric(horizontal: 120, vertical: 50),
+                margin: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
               ),
             );
           } else {
@@ -98,14 +98,16 @@ class _EditNoteViewState extends State<EditNoteView> {
               onChanged: (value) {
                 title = value;
               },
+              maxLength: 15,
             ),
             const SizedBox(height: 20),
             CustomerTextField(
               title: widget.noteModel.subTitle,
-              maxLines: 5,
+              maxLines: 3,
               onChanged: (value) {
                 subTitle = value;
               },
+              maxLength: 80,
             ),
             const SizedBox(height: 20),
             CustomerEditColorList(noteModel: widget.noteModel),

@@ -35,14 +35,17 @@ class _AddNoteFormState extends State<AddNoteForm> {
             onSaved: (value) {
               title = value;
             },
+            maxLength: 20,
           ),
           const SizedBox(height: 20),
           CustomerTextField(
-              title: 'Content',
-              maxLines: 5,
-              onSaved: (value) {
-                subTitle = value;
-              }),
+            title: 'Content',
+            maxLines: 3,
+            onSaved: (value) {
+              subTitle = value;
+            },
+            maxLength: 80,
+          ),
           const CustomerColorList(),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
