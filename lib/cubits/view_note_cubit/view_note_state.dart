@@ -5,4 +5,6 @@ sealed class ViewNoteState {}
 
 final class ViewNoteInitial extends ViewNoteState {}
 
+final class ViewEmptyNota extends ViewNoteState {}
+
 final class ViewNoteSuccess extends ViewNoteState {}

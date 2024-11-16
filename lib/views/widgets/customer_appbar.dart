@@ -18,12 +18,23 @@ class CustomerAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: .5,
       title: Padding(
         padding: const EdgeInsets.only(left: 16),
-        child: Text(
-          titleAppBar,
-          style: const TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.w700,
-          ),
+        child: Row(
+          children: [
+            Image.asset(
+              'assets/sticky-note.png',
+              width: 28,
+              height: 28,
+              fit: BoxFit.fill,
+            ),
+            const SizedBox(width: 10),
+            Text(
+              titleAppBar,
+              style: const TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ],
         ),
       ),
       actions: [

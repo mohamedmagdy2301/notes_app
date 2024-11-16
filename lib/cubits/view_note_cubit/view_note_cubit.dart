@@ -10,15 +10,19 @@ part 'view_note_state.dart';
 
 class ViewNoteCubit extends Cubit<ViewNoteState> {
   ViewNoteCubit() : super(ViewNoteInitial());
-  List<NoteModel>? notes;
+  List<NoteModel> notes = [];
   getNote() {
     Box<NoteModel> notesBox = Hive.box<NoteModel>(kNoteBox);
     notes = notesBox.values.toList();
-    emit(ViewNoteSuccess());
+    if (notes.isNotEmpty) {
+      emit(ViewNoteSuccess());
+    } else {
+      emit(ViewEmptyNota());
+    }
   }
 
   deleteAllNotes() {
-    Hive.box<NoteModel>(kNoteBox).deleteAll(notes!.map((e) => e.key).toList());
+    Hive.box<NoteModel>(kNoteBox).deleteAll(notes.map((e) => e.key).toList());
     getNote();
     emit(ViewNoteSuccess());
   }
