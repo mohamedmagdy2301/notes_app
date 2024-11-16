@@ -22,9 +22,10 @@ class CustomerAppBar extends StatelessWidget implements PreferredSizeWidget {
           children: [
             Image.asset(
               'assets/sticky-note.png',
-              width: 28,
-              height: 28,
+              width: 27,
+              height: 27,
               fit: BoxFit.fill,
+              opacity: const AlwaysStoppedAnimation(.8),
             ),
             const SizedBox(width: 10),
             Text(

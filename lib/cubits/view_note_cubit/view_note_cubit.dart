@@ -24,6 +24,5 @@ class ViewNoteCubit extends Cubit<ViewNoteState> {
   deleteAllNotes() {
     Hive.box<NoteModel>(kNoteBox).deleteAll(notes.map((e) => e.key).toList());
     getNote();
-    emit(ViewNoteSuccess());
   }
 }

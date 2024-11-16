@@ -17,8 +17,7 @@ class NotesView extends StatelessWidget {
 
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        backgroundColor: kPrimaryColor,
-        shape: const CircleBorder(),
+        backgroundColor: const Color.fromARGB(255, 19, 19, 19),
         onPressed: () {
           showModalBottomSheet(
               isScrollControlled: true,
@@ -30,10 +29,11 @@ class NotesView extends StatelessWidget {
                 );
               });
         },
-        child: const Icon(
-          Icons.add,
-          color: Colors.black,
-          size: 30,
+        child: Image.asset(
+          "assets/sticky-notes.png",
+          width: 45,
+          height: 45,
+          fit: BoxFit.fill,
         ),
       ),
       appBar: CustomerAppBar(

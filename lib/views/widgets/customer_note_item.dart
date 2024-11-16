@@ -41,7 +41,7 @@ class CustomerNoteItem extends StatelessWidget {
                       maxLines: 1,
                       style: const TextStyle(
                         fontSize: 25,
-                        color: Colors.black,
+                        color: Color.fromARGB(255, 32, 32, 32),
                         fontWeight: FontWeight.w500,
                       ),
                     ),

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/cubits/view_note_cubit/view_note_cubit.dart';
@@ -19,8 +17,6 @@ class _CustomerListBodyState extends State<CustomerListBody> {
   @override
   void initState() {
     BlocProvider.of<ViewNoteCubit>(context).getNote();
-    log(BlocProvider.of<ViewNoteCubit>(context).notes.toString());
-
     super.initState();
   }
 

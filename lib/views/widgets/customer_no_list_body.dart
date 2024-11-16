@@ -11,10 +11,10 @@ class CustomerNoListBody extends StatelessWidget {
       children: [
         Image.asset(
           'assets/sticky-note.png',
-          width: 180,
-          height: 180,
+          width: 150,
+          height: 150,
           fit: BoxFit.cover,
-          opacity: const AlwaysStoppedAnimation(.5),
+          opacity: const AlwaysStoppedAnimation(.4),
         ),
         const SizedBox(height: 30),
         Text(
@@ -22,7 +22,7 @@ class CustomerNoListBody extends StatelessWidget {
           style: TextStyle(
             color: Colors.grey.withOpacity(.5),
             fontWeight: FontWeight.w600,
-            fontSize: 25,
+            fontSize: 23,
           ),
         ),
         const SizedBox(height: 80),
