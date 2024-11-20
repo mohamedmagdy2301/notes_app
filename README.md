@@ -15,6 +15,7 @@ This project is a simple **Notes Application** built with **Flutter** and **Hive
 
 ---
 
+
 ## Features
 
 1. **Add Notes**  
